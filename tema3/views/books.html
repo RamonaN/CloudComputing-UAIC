@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>All books</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+  <style>
+
+    body {
+      background-image: url("/images/background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    #title {
+      font-family: 'Spicy Rice', cursive;
+      font-size:80px;
+      color:white;
+      text-align: center;
+    }
+
+    button.like {
+    	width: 50px;
+    	height: 50px;
+    	margin: 0 auto;
+
+    	border-radius: 50%;
+    	color: rgba(0,150,136 ,1);
+    	background-color:rgba(38,166,154 ,0.3);
+    	border-color: rgba(0,150,136 ,1);
+    	border-width: 1px;
+    	font-size: 25px;
+    }
+
+    button.dislike {
+    	width: 50px;
+    	height: 50px;
+    	margin: 0 auto;
+
+    	border-radius: 50%;
+    	color: rgba(255,82,82 ,1);
+    	background-color: rgba(255,138,128 ,0.3);
+    	border-color: rgba(255,82,82 ,1);
+    	border-width: 1px;
+    	font-size: 25px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container text-center mt-5">
+    <h1 id="title">Books</h1>
+    <a href="/" onclick="signOut();">Sign out</a>
+    <script>
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+
+        })
+        window.location.href="/";
+      }
+    </script>
+  </div>
+  <div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+
+      {{#books}}
+        <div class="card mt-3" style="width:250px;margin-right:30px;">
+          <img class="card-img-top mt-3" style="width:70%;margin-right:15%;margin-left:15%;height:170px" src="{{{imagine}}}" alt="Card image">
+          <div class="card-body text-center">
+            <h4 class="card-title">{{titlu}}</h4>
+            <p class="card-text">ISBN: {{isbn}}</p>
+            <p class="card-text">Author: {{autor}}</p>
+            <p class="card-text">Publisher: {{editor}} </p>
+            <p class="card-text">Year : {{an}} </p>
+
+            <button class="dislike" style="float:left">
+              <i class="far fa-thumbs-down" aria-hidden="true"></i>
+            </button>
+
+            <button class="like" style="float:right">
+              <i class="far fa-thumbs-up" aria-hidden="false"></i>
+            </button>
+          </div>
+        </div>
+      {{/books}}
+
+    </div>
+  </div>
+</body>
+</html>
