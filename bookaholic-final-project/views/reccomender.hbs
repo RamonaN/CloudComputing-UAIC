@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Adviser</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+  <style>
+      body{
+          background-image:url("/images/adviser.jpg");
+          background-size: cover;
+          background-repeat:no-repeat ;
+      }
+  </style>
+</head>
+<body>
+  <div class="container d-flex flex-row">
+  <div class="container mt-5 mb-5 col-lg-7 flex-column">
+    <div class="row justify-content-left  flex-column">
+    <h3>Hello, booklover!</h3>
+    <h4>Please fill one or more fields and get a reccomendation </h4>
+    </div>
+    <div class="row justify-content-left ">
+        <form class="d-flex flex-column" method="post" action="reccomender">
+          <div class="form-group mb-3 ">
+    <label for="Titlu"></label>
+    <input type="text" class="form-control" id="Titlu" name="titlu" placeholder="Title">
+  </div>
+  <div class="form-group mb-3">
+    <label for="authorName"></label>
+    <input type="text" class="form-control" id="authorName" name="autor" aria-describedby="author" placeholder="Enter author name">
+  </div>
+  <div class="form-group mb-3 ">
+    <label for="anAparitie"></label>
+    <input type="text" class="form-control" id="anAparitie" name="an" placeholder="Year of  publication">
+  </div>
+ 
+  <div class="form-group mb-3 ">
+    <label for="Categorie"></label>
+    <input type="text" class="form-control" id="Categorie" name="categorie" placeholder="Categorie">
+  </div>
+  <div class="form-group mb-3 ">
+    <label for="Editor"></label>
+    <input type="text" class="form-control" id="Editor" name="editor" placeholder="Editor">
+  </div>
+
+  <button  type="submit" class="btn btn-warning">Get reccomendation</button>
+</form>
+    </div>
+
+  </div>
+  
+  <div class="container col-lg-3 d-flex flex-column" >
+    {{#each isbn}}
+    <a href="/book/{{isbn}}"><button class="btn btn-warning"> Go to book with isbn : {{isbn}}</button></a>
+    {{/each}}
+    {{#if error}}
+      <button class="btn btn-warning">{{error}}</button>
+
+    {{/if}}
+  </div>
+</body>
+</html>

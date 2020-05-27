@@ -2,8 +2,7 @@ const createError = require('http-errors');
 const { Request } = require("tedious");
 const { modelBook } = require("../models/books")
 const connection = require("../database/connection");
-var tokens = require('../tokens.js');
-var graph = require('../graph.js');
+
 module.exports.getBook = (bookId, next) => {
 
   const request = new Request(
@@ -51,7 +50,6 @@ module.exports.getBooks = (next) => {
   );
 
   var books = []
-
   request.on("row", columns => {
     var book = modelBook(columns);
     books.push(book)

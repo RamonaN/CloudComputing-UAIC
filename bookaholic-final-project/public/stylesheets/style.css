@@ -1,0 +1,168 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.mini-cart {
+  float: right;
+}
+
+.mini-cart-button {
+  float: right;
+  color: #ffc008;
+  font-size: 16px;
+  padding: 6px 8px !important;
+  position: relative;
+  top:7px;
+  margin-left:30px;
+  background: none !important;
+  border-width: 2px;
+  border-color: #ffc008 !important;
+  width: 36px;
+  height: 36px;
+  border-radius: 50px !important;
+}
+
+
+
+.mini-cart-container {
+  min-height: 200px;
+  position: absolute;
+  width: 50%;
+  max-width: 400px;
+  display: none;
+  background: white;
+  box-shadow: 0px 10px 50px -5px rgb(199, 199, 199);
+  top: 50px;
+  right: 10px;
+  z-index: 1;
+}
+
+.mini-cart-container ul {
+  margin-left: 0!important;
+  padding-left: 20px!important;
+  padding-right: 20px!important;
+}
+
+.mini-cart-container ul li {
+  list-style: none;
+  position: relative;
+  border-bottom: 1px solid grey;
+  min-height: 60px;
+}
+
+.mini-cart-container ul li h3 {
+  font-size: 16px;
+}
+
+.mini-cart-container ul li h3 span {
+  font-size: 16px;
+  color: grey;
+  position: relative;
+}
+
+.mini-cart-container ul li span {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+
+.mini-cart-open {
+  display: block;
+}
+
+.product-grid {
+  padding-top: 20px;
+}
+
+.grid-item {
+  text-align: center;
+  padding: 15px;
+  box-shadow: 2px 0px 0px 1px rgb(199, 199, 199);
+  transition: all .25s ease;
+  max-width: 300px;
+  position:relative;
+}
+
+.grid-item:hover {
+  box-shadow: 0px 0px 20px -1px rgb(99, 99, 99);
+}
+
+.grid-item h1 {
+  font-size: 24px;
+  margin-bottom: 10px
+}
+
+.grid-item h3 {
+  margin-top: 10px;
+}
+
+.grid-item .quantity-input {
+  margin: 5px auto;
+}
+
+
+
+.grid-item .quantity-input input {
+  max-width: 50px;
+}
+
+.add-to-cart-button {
+  background: green;
+}
+
+.mini-cart-totals {
+  text-align: center;
+}
+
+#total-price {
+  float: left;
+  padding: 5px;
+  border: 1px solid grey;
+  margin: 10px;
+  min-width: 100px;
+  margin-left: 20px;
+}
+
+#total-items {
+  float: right;
+  padding: 5px;
+  border: 1px solid grey;
+  margin: 10px;
+  min-width: 100px;
+  margin-right: 20px;
+}
+
+#total-items p,
+#total-price p {
+  font-weight: 700;
+  color: grey;
+  margin-bottom: 0;
+}
+
+#total-items span,
+#total-price span {
+  font-size: 16px;
+  font-weight: 700;
+  color: grey;
+}
+
+.succes-message {
+  display: none;
+  position: absolute;
+  height:100px;
+  background:white;
+  width: 200px;
+  z-index: 2;
+  left: 40%;
+  right: 0;
+  top:30%;
+  font-size:20px;
+  box-shadow: 0px 0px 20px -1px rgb(99, 99, 99);
+  text-align:center;
+  padding:20px;
+}

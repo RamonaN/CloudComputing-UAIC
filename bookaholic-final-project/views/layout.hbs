@@ -1,0 +1,251 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<!-- <LayoutSnippet> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookaholic</title>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
+   <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container">
+        <a href="/" class="navbar-brand">Bookaholic</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="/" class="nav-link{{#if active.home}} active{{/if}}">Home</a>
+            </li>
+             <li class="nav-item">
+              <a href="/blogpost" class="nav-link">Blogposts</a>
+            </li>
+           
+            {{#if user}}
+              <li class="nav-item" data-turbolinks="false">
+                <a href="/books" class="nav-link{{#if active.books}} active{{/if}}">Books</a>
+              </li>
+               <li class="nav-item" data-turbolinks="false">
+                <a href="/reccomender" class="nav-link active">Adviser</a>
+              </li>
+              {{#if user.premium}}
+               <li class="nav-item" data-turbolinks="false">
+                <a href="/blog" class="nav-link active">Blog</a>
+              </li>
+            {{/if}}
+            {{/if}}
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+           
+            {{#if user}}
+            
+            <li class="nav-item">
+                  <a href="" class="nav-link" style="border: 1px solid white;"data-toggle="modal"  data-target="#upgradeModal">{{#if user.premium}}Upgraded  {{else}}Upgrade{{/if}}</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/auth/signout" role="button" aria-haspopup="true"
+                  aria-expanded="false">
+                  {{#if user.avatar}}
+                    <img src="{{ user.avatar }}" class="rounded-circle align-self-center mr-2" style="width: 32px;">
+                  {{else}}
+                    <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="width: 32px;"></i>
+                  {{/if}}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <h5 class="dropdown-item-text mb-0">{{ user.displayName }}</h5>
+                  <p class="dropdown-item-text text-muted mb-0">{{ user.email }}</p>
+                  <div class="dropdown-divider"></div>
+                  <a href="/auth/signout" class="dropdown-item">Sign Out</a>
+                </div>
+              </li>
+              <li class="mini-cart"> 
+      <button class=" mini-cart-button"><span class="fas fa-shopping-cart"></span></button>
+  
+
+    <div class="mini-cart-container">
+      <div class="mini-cart-items">
+        <ul>
+        </ul>
+        <div class="mini-cart-totals">
+          <div id="total-price">
+            <p>Total Price</p>
+            <span></span>
+          </div>
+          <div>
+            <a href="/checkout" class="nav-link"><button class="btn btn-dark">Checkout</button></a>
+
+          </div>
+         
+        </div>
+      </div>
+    </div></li>
+            {{else}}
+              <li class="nav-item">
+                <a href="/auth/signin" class="nav-link">Sign In</a>
+              </li>
+               
+            {{/if}}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="modal fade " style="color:black" id="upgradeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-center" id="exampleModalLabel">Upgrade to pro</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h4>For only 10$ a month you get unlimited access to blog, adviser & more.</h4>
+      </div>
+      <div class="modal-footer">
+       <a href="/buy" class="nav-link"> <button type="button" class="btn btn-info">Upgrade now</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+    <main role="main" class="container-fluid mt-5">
+      {{#each error}}
+        <div class="alert alert-danger" role="alert">
+          <p class="mb-3">{{ this.message }}</p>
+          {{#if this.debug }}
+            <pre class="alert-pre border bg-light p-2"><code>{{ this.debug }}</code></pre>
+          {{/if}}
+        </div>
+      {{/each}}
+
+      {{{body}}}
+    </main>
+
+    <!-- Bootstrap/jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+          crossorigin="anonymous"></script>
+  <script>
+  
+  function commaSeparateNumber(val){
+  while (/(\d+)(\d{3})/.test(val.toString())){
+    val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+  }
+  return val;
+}
+  let products=[];
+$('document').ready(function(){ 
+   var totalPrice = 0.0;
+(function () {
+
+  var lastclear = localStorage.getItem('lastclear'),
+      time_now  = (new Date()).getTime();
+
+  // .getTime() returns milliseconds so 1000 * 60 * 60 * 24 = 24 days
+  if ((time_now - lastclear) > 1000*100 *18) {
+
+    localStorage.clear();
+
+    localStorage.setItem('lastclear', time_now);
+  }
+
+})();
+ if(localStorage.getItem('products')){
+   products=JSON.parse(localStorage.getItem('products'))
+   for(let i=0;i<products.length;i++){
+     totalPrice+=parseFloat(products[i].price);
+    $('.mini-cart-items ul').append('<li id="'+products[i].val+'">'+'<h3>'+products[i].productName+'<br/>'+'<span class="item-prices" id="price_'+products[i].val+'">'+products[i].price+'</span>'+'</h3>'+'</li>');
+ }
+  $('div#total-price > span').text(commaSeparateNumber(totalPrice.toFixed(2)));
+
+ }
+	 $('.mini-cart-button').click(function(){
+     $('.mini-cart-container').toggleClass('mini-cart-open');
+   })
+
+  $('.add-to-cart-button').on('click', function(e) {
+   
+    var val = $(this).attr("rel");
+    var price = $(this).attr('sel');
+    //var qty = $("input#text_"+val).val();
+    var productName =$(this).attr('product');
+    totalPrice=0.0;
+    products.push({'val':val, "productName":productName,"price":price});
+    console.log(products)
+    localStorage.setItem('products',JSON.stringify(products));   
+    if($(".mini-cart-items ul li#"+val).length)
+    {
+      var new_val=parseFloat($("span#price_"+val).text())+parseFloat(price);
+      $("span#price_"+val).text(new_val.toFixed(2));
+      
+      //var new_qty_val=parseInt($("span#qty_"+val).text())+parseInt(qty);
+      //$("span#qty_"+val).text(new_qty_val);
+    }
+    else{ 
+        $('.mini-cart-items ul').append('<li id="'+val+'">'+'<h3>'+productName+'<br/>'+'<span class="item-prices" id="price_'+val+'">'+price+'</span>'+'</h3>'+'</li>');
+    };
+
+  
+    $(".item-prices").each(function()
+    {
+        totalPrice += parseFloat($(this).text());
+       // localStorage.setItem('totalPrice',totalPrice);
+    });
+    $('div#total-price > span').text(commaSeparateNumber(totalPrice.toFixed(2)));
+   
+    
+    $('.succes-message').show(0).delay(1000).hide(0);
+  });
+
+});
+
+  </script>
+  </body>
+</html>
+<!-- </LayoutSnippet> -->

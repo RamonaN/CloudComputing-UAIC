@@ -6,7 +6,22 @@
 <html>
   <head>
     <title>Bookaholic</title>
-
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
+   <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -30,10 +45,18 @@
             <li class="nav-item">
               <a href="/" class="nav-link{{#if active.home}} active{{/if}}">Home</a>
             </li>
+           
             {{#if user}}
               <li class="nav-item" data-turbolinks="false">
                 <a href="/books" class="nav-link{{#if active.books}} active{{/if}}">Books</a>
               </li>
+               <li class="nav-item" data-turbolinks="false">
+                <a href="/reccomender" class="nav-link active">Adviser</a>
+              </li>
+               <li class="nav-item" data-turbolinks="false">
+                <a href="/blog" class="nav-link active">Blog</a>
+              </li>
+
             {{/if}}
           </ul>
           <ul class="navbar-nav justify-content-end">
@@ -55,6 +78,7 @@
                   <a href="/auth/signout" class="dropdown-item">Sign Out</a>
                 </div>
               </li>
+              <li><a href="#" class="mt-2" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span class="badge">3</span></a></li>
             {{else}}
               <li class="nav-item">
                 <a href="/auth/signin" class="nav-link">Sign In</a>
@@ -64,7 +88,7 @@
         </div>
       </div>
     </nav>
-    <main role="main" class="container">
+    <main role="main" class="container-fluid">
       {{#each error}}
         <div class="alert alert-danger" role="alert">
           <p class="mb-3">{{ this.message }}</p>

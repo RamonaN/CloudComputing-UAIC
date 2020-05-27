@@ -1,0 +1,14 @@
+{
+    "azureFunctions.deploySubpath": "bin/Release/netcoreapp3.1/publish",
+    "azureFunctions.projectLanguage": "C#",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "publish",
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/8b62687c-e4d4-41ac-900e-8bbd7da0c03c/resourceGroups/book-web-app/providers/Microsoft.Web/sites/bookaholics"
+}

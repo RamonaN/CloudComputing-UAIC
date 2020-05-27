@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>All books</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/js/star-rating.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', serif;
+    }
+
+    .content {
+      width: 250px;
+      margin-top: 10px
+    }
+
+
+    .product-rating {
+      font-size: 50px
+    }
+
+    .stars svg {
+      font-size: 18px;
+      color: #28a745
+    }
+
+    .rating-text {
+      margin-top: 10px
+    }
+
+    body {
+      background-color: beige;
+    }
+
+    #title {
+      font-family: 'Spicy Rice', cursive;
+      font-size: 80px;
+      color: white;
+      text-align: center;
+    }
+
+    .wrapper {
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+      margin-top: 5%;
+    }
+
+
+
+    .quantity {
+      float: left;
+      margin-right: 15px;
+      background-color: #eee;
+      position: relative;
+      width: 80px;
+      overflow: hidden
+    }
+
+    .quantity input {
+      margin: 0;
+      text-align: center;
+      width: 15px;
+      height: 15px;
+      padding: 0;
+      float: right;
+      color: #000;
+      font-size: 20px;
+      border: 0;
+      outline: 0;
+      background-color: #F6F6F6
+    }
+
+    .quantity input.qty {
+      position: relative;
+      border: 0;
+      width: 100%;
+      height: 40px;
+      padding: 10px 25px 10px 10px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 15px;
+      border-radius: 0;
+      background-clip: padding-box
+    }
+
+    .quantity .minus,
+    .quantity .plus {
+      line-height: 0;
+      background-clip: padding-box;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      -webkit-background-size: 6px 30px;
+      -moz-background-size: 6px 30px;
+      color: #bbb;
+      font-size: 20px;
+      position: absolute;
+      height: 50%;
+      border: 0;
+      right: 0;
+      padding: 0;
+      width: 25px;
+      z-index: 3
+    }
+
+    .quantity .minus:hover,
+    .quantity .plus:hover {
+      background-color: #dad8da
+    }
+
+    .quantity .minus {
+      bottom: 0
+    }
+
+    .shopping-cart {
+      margin-top: 20px;
+    }
+
+    .rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
+.username{
+  font-size:18px;
+  font-family:fantasy;
+  font-weight: bold;
+  }
+  </style>
+</head>
+
+<body>
+  {{#book}}
+  <div class="container-fluid d-flex flex-column">
+  <div class="container-fluid d-flex wrapper flex-row text-center">
+    <div class="container  d-flex  flex-column">
+      <div class="container  flex-column mr-3 ml-3">
+        <div><img class="card-img-top mt-3" style="width:200px;height:300px" src="{{{imagine}}}" alt="Card image">
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="content text-center">
+            <div class="ratings"> <span class="product-rating">{{rating}}</span><span>/5</span>
+              <div class="stars"> 
+                {{#times rating}}
+                  <i class="fa fa-star"></i>
+                {{/times}}
+              </div>
+              <div class="rating-text"> <span>{{revno}} reviews</span> </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a href="" class="btn btn-success btn-rounded mb-4" data-toggle="modal" data-target="#modalReview">
+            Add review </a>
+        </div>
+      </div>
+    </div>
+    <div class="container text-left justify-content-center ">
+      <div class="container d-flex flex-column">
+        <h4 class="card-title"><strong>{{titlu}}</strong></h4>
+        <p class="card-text"><strong>Author:</strong>{{autor}}</p>
+        <p class="card-text"><strong>Publisher:</strong>{{editor}} </p>
+        <h4 class="card-title"><strong>Price: {{pret}} lei</strong></h4>
+         <p class="card-text"><strong>Description:</strong>{{descriere}} </p>
+        <button class="btn btn-danger add-to-cart-button" product='{{titlu}}' sel={{pret}} rel={{titlu}}>
+        Add to cart </button>
+      </div>
+    </div>
+   
+
+
+  </div>
+ 
+  <form class="modal fade" id="modalReview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" action = "review" method = "post">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">{{titlu}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+          </div>
+          <div class="input-group">
+            <textarea class="form-control" aria-label="With textarea" form="modalReview" name = "descriere"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button class="btn btn-info">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="container mt-5 d-flex flex-column">
+    <div class="container d-flex flex-column" >
+      <p style="font-size:35px;color:black;font-family:Fredericka the Great, cursive">REVIEWS</p>
+      
+    </div>
+    {{#each review}}
+      <div class="card mb-5">
+        <div class="card-header">
+          Date: {{dataPostarii}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{nume}} says</h5>
+          <p class="card-text">{{descriere}}</p>
+         
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  </div>
+  {{/book}}
+</body>
+</html>

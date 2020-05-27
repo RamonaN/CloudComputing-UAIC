@@ -40,7 +40,7 @@ router.get('/:bookId', (req, res, next) => {
     {
       return next(err);
     }
-    res.json(book).end();
+    res.render("book",{'book':book});
   })
 });
 
@@ -54,5 +54,6 @@ router.get('/:bookId/ratings', (req, res, next) => {
     res.json(ratings).end();
   })
 });
+
 
 module.exports = router;

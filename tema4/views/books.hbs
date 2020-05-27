@@ -33,31 +33,9 @@
       text-align: center;
     }
 
-    button.like {
-    	width: 50px;
-    	height: 50px;
-    	margin: 0 auto;
+    
 
-    	border-radius: 50%;
-    	color: rgba(0,150,136 ,1);
-    	background-color:rgba(38,166,154 ,0.3);
-    	border-color: rgba(0,150,136 ,1);
-    	border-width: 1px;
-    	font-size: 25px;
-    }
-
-    button.dislike {
-    	width: 50px;
-    	height: 50px;
-    	margin: 0 auto;
-
-    	border-radius: 50%;
-    	color: rgba(255,82,82 ,1);
-    	background-color: rgba(255,138,128 ,0.3);
-    	border-color: rgba(255,82,82 ,1);
-    	border-width: 1px;
-    	font-size: 25px;
-    }
+  
 
   </style>
 </head>
@@ -77,14 +55,7 @@
             <p class="card-text">Author: {{autor}}</p>
             <p class="card-text">Publisher: {{editor}} </p>
             <p class="card-text">Year : {{an}} </p>
-
-            <button class="dislike" style="float:left">
-              <i class="far fa-thumbs-down" aria-hidden="true"></i>
-            </button>
-
-            <button class="like" style="float:right">
-              <i class="far fa-thumbs-up" aria-hidden="false"></i>
-            </button>
+            <a href="http://localhost:3000/book/{{isbn}}"><button class="btn btn-success">View more </button></a>
           </div>
         </div>
       {{/each}}

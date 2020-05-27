@@ -7,6 +7,7 @@ module.exports.modelBook = (columns) => {
     book.editor = columns[4].value;
     book.imagine = columns[5].value;
     book.categorie = columns[6].value;
-    book.descriere = columns[7].value;
+    book.pret = columns[7].value;
+    book.descriere=columns[8].value;
     return book;
   }

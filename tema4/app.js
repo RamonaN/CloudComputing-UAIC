@@ -94,7 +94,11 @@ var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var books=require('./routes/books');
 var graph = require('./graph');
-
+var adviser=require('./routes/adviser');
+var checkout=require('./routes/checkout');
+var blog=require('./routes/blog');
+var publish=require('./routes/publish');
+var publications=require('./routes/publications');
 var app = express();
 
 // <SessionSnippet>
@@ -173,6 +177,13 @@ app.use('/auth', authRouter);
 
 app.use('/users', usersRouter);
 app.use('/books', books);
+app.use('/book',books);
+app.use('/reccomender',adviser);
+app.use('/checkout',checkout);
+app.use('/blog',blog);
+app.use('/blog/add-new-post',blog);
+app.use('/publisher',publish);
+app.use('/publications',publications);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
