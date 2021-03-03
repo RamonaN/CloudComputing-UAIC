@@ -27,7 +27,7 @@
     "node-fetch": "^2.6.0",
     "passport-azure-ad": "^4.2.1",
     "paypal-rest-sdk": "^1.8.1",
-    "pug": "^3.0.0",
+    "pug": "^3.0.1",
     "request": "^2.88.2",
     "simple-oauth2": "^3.3.0",
     "stripe": "^8.55.0",
