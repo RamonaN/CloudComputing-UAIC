@@ -19,7 +19,7 @@
     "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
     "isomorphic-fetch": "^2.2.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.9.15",
     "morgan": "~1.9.1",
     "passport-azure-ad": "^4.2.1",
